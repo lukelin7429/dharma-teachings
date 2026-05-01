@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大智度論 卷57 結構大綱</title>
+<style>
+:root {
+  --ink: #1d1a17;
+  --ink-soft: #4a423a;
+  --ink-muted: #8a7e70;
+  --paper: #faf6ee;
+  --paper-warm: #f3ead7;
+  --paper-deep: #ebdfc4;
+  --gold: #b8893a;
+  --gold-deep: #8a5e1c;
+  --crimson: #6b2a23;
+  --indigo: #2a3358;
+  --jade: #4d6b4a;
+  --line: #d8c9a8;
+  --shadow: rgba(40, 30, 15, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'PingFang TC', 'Apple LiGothic Medium', 'Microsoft JhengHei', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  padding: 32px 16px 96px;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ===== Hero ===== */
+.hero {
+  text-align: center;
+  padding: 56px 24px 48px;
+  border: 2px solid var(--gold);
+  background:
+    linear-gradient(135deg, rgba(184, 137, 58, 0.08), rgba(42, 51, 88, 0.04)),
+    var(--paper-warm);
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.hero::before, .hero::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--gold);
+}
+.hero::before { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.hero::after { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+.hero-eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--crimson);
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  letter-spacing: 0.15em;
+}
+
+.hero-quote {
+  max-width: 720px;
+  margin: 24px auto 0;
+  padding: 20px 28px;
+  background: var(--paper);
+  border-left: 4px solid var(--gold);
+  font-size: 18px;
+  text-align: left;
+  color: var(--ink);
+}
+
+.hero-quote strong { color: var(--crimson); }
+
+.hero-meta {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  letter-spacing: 0.1em;
+}
+
+/* ===== Section ===== */
+section { margin-bottom: 64px; }
+
+.section-title {
+  font-size: 22px;
+  color: var(--indigo);
+  border-bottom: 1.5px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 28px;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.section-title .num {
+  color: var(--gold-deep);
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.section-title .en {
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+  color: var(--ink-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-left: auto;
+  font-weight: 300;
+}
+
+/* ===== 兩品速覽 ===== */
+.pin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.pin-card {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.pin-card .ord {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background: var(--gold);
+  color: var(--paper);
+  padding: 4px 12px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+
+.pin-card h3 {
+  color: var(--crimson);
+  font-size: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.pin-card .ref {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+
+.pin-card p {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* ===== 全卷骨架 ===== */
+.skeleton {
+  background: var(--paper-warm);
+  padding: 32px;
+  border: 1px solid var(--line);
+}
+
+.tree {
+  font-family: 'Lato', 'PingFang TC', sans-serif;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink);
+}
+
+.tree .lvl-0 { color: var(--crimson); font-weight: 600; font-size: 16px; }
+.tree .lvl-1 { color: var(--indigo); font-weight: 500; padding-left: 24px; }
+.tree .lvl-2 { color: var(--ink-soft); padding-left: 56px; }
+.tree .lvl-3 { color: var(--ink-muted); padding-left: 88px; font-size: 13px; }
+
+/* ===== 三利益表 ===== */
+.benefit-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  margin-bottom: 16px;
+}
+
+.benefit-table th, .benefit-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.benefit-table th {
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-size: 14px;
+}
+
+.benefit-table td {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.benefit-table .num-cell {
+  background: var(--gold);
+  color: var(--paper);
+  text-align: center;
+  font-weight: 600;
+  width: 36px;
+}
+
+/* ===== 七段寶塔 ===== */
+.stupa-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 32px 0;
+  position: relative;
+}
+
+.stupa-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 200px;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: transform 0.2s;
+}
+
+.stupa-row:hover { transform: translateX(4px); }
+
+.stupa-num {
+  background: var(--indigo);
+  color: var(--paper);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}
+
+.stupa-label {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.stupa-vis {
+  display: flex;
+  gap: 3px;
+  justify-content: flex-start;
+}
+
+.stupa-icon {
+  width: 14px;
+  height: 22px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
+}
+
+.stupa-conclusion {
+  margin-top: 24px;
+  padding: 24px;
+  background: var(--crimson);
+  color: var(--paper);
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+.stupa-conclusion strong {
+  color: var(--paper-warm);
+  font-size: 22px;
+  display: block;
+  margin-top: 6px;
+}
+
+/* ===== 四事答 ===== */
+.qa-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.qa-step {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 13px;
+  position: relative;
+}
+
+.qa-step .qa-tag {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  color: var(--gold-deep);
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+
+.qa-step h4 {
+  font-size: 13px;
+  color: var(--indigo);
+  margin-bottom: 4px;
+}
+
+.qa-step p {
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ===== 般若放射圖 ===== */
+.radiate {
+  background: linear-gradient(180deg, var(--paper-warm), var(--paper));
+  padding: 48px 32px;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.radiate-core {
+  display: inline-block;
+  padding: 24px 40px;
+  background: var(--crimson);
+  color: var(--paper);
+  font-size: 22px;
+  letter-spacing: 0.15em;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.radiate-core::after {
+  content: 'Prajñāpāramitā';
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: var(--gold-deep);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.radiate-arms {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.radiate-arms::before {
+  content: '';
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  width: 1px;
+  height: 24px;
+  background: var(--gold);
+}
+
+.radiate-arm {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  padding: 16px 12px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--ink);
+}
+
+.radiate-arm h4 {
+  color: var(--indigo);
+  font-size: 14px;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.radiate-arm p {
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* ===== 般若在世 ===== */
+.dharma-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pillar {
+  background: var(--paper);
+  border-top: 4px solid var(--indigo);
+  padding: 20px 18px;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.pillar h4 {
+  color: var(--indigo);
+  font-size: 16px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.pillar p {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ===== 二般若辨 ===== */
+.dual-prajna {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.prajna-card {
+  background: var(--paper-warm);
+  padding: 24px;
+  border-left: 4px solid var(--gold);
+}
+
+.prajna-card h4 {
+  color: var(--crimson);
+  font-size: 17px;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+
+.prajna-card p { font-size: 14px; color: var(--ink-soft); }
+
+.prajna-card .meta {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* ===== 四大核心義理 ===== */
+.core-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.core-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 24px;
+  position: relative;
+  padding-top: 32px;
+}
+
+.core-card .ord {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  background: var(--indigo);
+  color: var(--paper);
+  padding: 4px 14px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+}
+
+.core-card h3 {
+  color: var(--crimson);
+  font-size: 18px;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.core-card .en-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.core-card .point {
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.core-card .teach {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.core-card .teach::before {
+  content: '✦ 西方教學切入';
+  display: block;
+  color: var(--gold-deep);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.footer p { margin-bottom: 4px; }
+
+/* ===== Print ===== */
+@media print {
+  body { background: white; padding: 0; }
+  .page { max-width: 100%; }
+  .stupa-row:hover { transform: none; }
+  section { page-break-inside: avoid; margin-bottom: 32px; }
+  .hero { page-break-after: avoid; }
+}
+
+@media (max-width: 720px) {
+  .pin-grid, .core-grid, .dual-prajna { grid-template-columns: 1fr; }
+  .dharma-pillars { grid-template-columns: 1fr; }
+  .radiate-arms { grid-template-columns: 1fr 1fr; }
+  .qa-flow { grid-template-columns: 1fr 1fr; }
+  .stupa-row { grid-template-columns: 40px 1fr; }
+  .stupa-vis { grid-column: 1 / -1; }
+  .hero h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-eyebrow">Mahāprajñāpāramitā Śāstra · Volume 57</div>
+    <h1>大智度論　卷五十七</h1>
+    <div class="hero-sub">〈釋寶塔校量品第三十二〉　〈釋述誠品第三十三〉</div>
+    <div class="hero-quote">
+      卷 57 的核心命題：<strong>「般若是諸善法之本，故供養般若勝過一切供養。」</strong><br>
+      透過七段遞增寶塔的層層校量、以及供養般若 vs 供養舍利的辯難，本卷凸顯般若波羅蜜的根本地位——<br>
+      一切種智、五度、十八空、三乘聖果，皆從般若生。
+    </div>
+    <div class="hero-meta">
+      大正藏 25，463b16–468a9　｜　釋厚觀主編《大智度論講義》（第09期）　｜　慧日佛學班第09期／福嚴推廣教育班第20期（2010.10.09）
+    </div>
+  </header>
+
+  <!-- 兩品速覽 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">壹</span>兩品速覽
+      <span class="en">Two Chapters at a Glance</span>
+    </h2>
+    <div class="pin-grid">
+      <div class="pin-card">
+        <div class="ord">CH. 32</div>
+        <h3>釋寶塔校量品</h3>
+        <div class="ref">大正 25，463b16–467b20</div>
+        <p>受持般若的三大利益（刀箭不傷、水火不害、書寫供養得護持），並以供養般若 vs 供養舍利、供養般若 vs 七段遞增寶塔，雙重校量功德。</p>
+      </div>
+      <div class="pin-card">
+        <div class="ord">CH. 33</div>
+        <h3>釋述誠品</h3>
+        <div class="ref">大正 25，467b21–468a9</div>
+        <p>佛印可帝釋所悟，再次校量並結勸——若般若在世，則三寶不滅，眾善皆現於世。深井與綆之喻闡明實相般若與文字般若的關係。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全卷骨架 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">貳</span>全卷骨架
+      <span class="en">Structural Outline</span>
+    </h2>
+    <div class="skeleton">
+      <div class="tree">
+        <div class="lvl-0">卷 57</div>
+        <div class="lvl-1">├── 〈寶塔校量品第三十二〉</div>
+        <div class="lvl-2">│　　├── 壹、再明受持般若的利益</div>
+        <div class="lvl-3">│　　│　　├──（壹）不為刀箭所傷</div>
+        <div class="lvl-3">│　　│　　├──（貳）不為水火眾惡所傷</div>
+        <div class="lvl-3">│　　│　　└──（參）但書寫供養般若，人非人不得其便</div>
+        <div class="lvl-2">│　　└── 貳、校量功德</div>
+        <div class="lvl-3">│　　 　 　├──（壹）供養般若 vs 供養舍利</div>
+        <div class="lvl-3">│　　 　 　└──（貳）供養般若 vs 七段遞增寶塔供養</div>
+        <div class="lvl-1">└── 〈述誠品第三十三〉</div>
+        <div class="lvl-2">　　 ├── 壹、佛述成，歎供養般若功德無邊</div>
+        <div class="lvl-2">　　 └── 貳、校量功德</div>
+        <div class="lvl-3">　　 　 　├──（壹）供養般若勝供養寶塔（百千億萬分不能及）</div>
+        <div class="lvl-3">　　 　 　└──（貳）若般若在世，則三寶不滅，眾善皆現於世</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 受持般若三利益 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">參</span>受持般若三利益
+      <span class="en">Three Benefits of Upholding Prajñā</span>
+    </h2>
+    <table class="benefit-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>三利益</th>
+          <th>內因（自身修行）</th>
+          <th>外緣（諸佛諸天加持）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num-cell">1</td>
+          <td><strong>不為刀箭所傷</strong><br><span style="font-size:12px;color:var(--ink-muted);">入軍陣中，終不失命</span></td>
+          <td>長夜行六波羅蜜，除自他三毒刀箭（婬、瞋、癡、邪見、纏垢、結使）</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="num-cell">2</td>
+          <td><strong>不為水火眾惡所傷</strong><br><span style="font-size:12px;color:var(--ink-muted);">毒藥、蠱道、火坑、深水皆不害</span></td>
+          <td>般若是大明呪、無上呪；人法皆不可得</td>
+          <td>三世諸佛皆學此呪，得阿耨多羅三藐三菩提</td>
+        </tr>
+        <tr>
+          <td class="num-cell">3</td>
+          <td><strong>但書寫供養便得護持</strong><br><span style="font-size:12px;color:var(--ink-muted);">不讀誦亦得功德</span></td>
+          <td>心意與讀誦者同（深愛樂、雇人書寫）</td>
+          <td>諸天守護般若所止處（以菩提樹為證）</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--ink-muted);margin-top:8px;">※ 論主關鍵釋疑：「業因緣無能免」與「讀誦般若兵刃不傷」如何會通？答：業有二種——必受報 vs 不必受報。輕罪可救，如有勢力財寶之人雖入死科可得濟命。</p>
+  </section>
+
+  <!-- 七段寶塔 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">肆</span>七段遞增寶塔校量
+      <span class="en">Seven-Tier Stupa Comparison</span>
+    </h2>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px;">佛以七段遞增的寶塔供養，層層放大規模，但每一層的功德——皆不如供養般若。</p>
+    <div class="stupa-block">
+      <div class="stupa-row">
+        <div class="stupa-num">1</div>
+        <div class="stupa-label">一七寶塔（高一由旬）</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span></div>
+      </div>
+      <div class="stupa-row">
+        <div class="stupa-num">2</div>
+        <div class="stupa-label">滿閻浮提七寶塔</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span><span class="stupa-icon"></span></div>
+      </div>
+      <div class="stupa-row">
+        <div class="stupa-num">3</div>
+        <div class="stupa-label">滿四天下七寶塔</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span></div>
+      </div>
+      <div class="stupa-row">
+        <div class="stupa-num">4</div>
+        <div class="stupa-label">滿小千世界七寶塔</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span></div>
+      </div>
+      <div class="stupa-row">
+        <div class="stupa-num">5</div>
+        <div class="stupa-label">滿二千中世界七寶塔</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span></div>
+      </div>
+      <div class="stupa-row">
+        <div class="stupa-num">6</div>
+        <div class="stupa-label">滿三千大千世界七寶塔</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span></div>
+      </div>
+      <div class="stupa-row">
+        <div class="stupa-num">7</div>
+        <div class="stupa-label">三千大千世界一一眾生各起塔</div>
+        <div class="stupa-vis"><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span><span class="stupa-icon"></span></div>
+      </div>
+    </div>
+    <div class="stupa-conclusion">
+      皆 不 如 供 養 般 若
+      <strong>「一切善法皆攝在般若中，是名一切諸佛法印」</strong>
+    </div>
+  </section>
+
+  <!-- 釋疑：閻浮提人為何不供養般若？ -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">伍</span>閻浮提人為何不供養般若？
+      <span class="en">The Buddha's Four-Fold Answer</span>
+    </h2>
+    <p style="font-size:14px;color:var(--ink-soft);">既然供養般若得福甚多，何以閻浮提人不供養？佛以「四事答」回應帝釋之問——</p>
+    <div class="qa-flow">
+      <div class="qa-step">
+        <div class="qa-tag">STEP 1</div>
+        <h4>第一反問</h4>
+        <p>幾人於三寶不壞信、無疑、決了？<br><strong style="color:var(--crimson);">少。</strong></p>
+      </div>
+      <div class="qa-step">
+        <div class="qa-tag">STEP 2</div>
+        <h4>第二反問</h4>
+        <p>幾人得三十七品、發菩提心？<br><strong style="color:var(--crimson);">少。</strong></p>
+      </div>
+      <div class="qa-step">
+        <div class="qa-tag">STEP 3</div>
+        <h4>佛正答</h4>
+        <p>信者少，行菩薩道者轉少。</p>
+      </div>
+      <div class="qa-step">
+        <div class="qa-tag">STEP 4</div>
+        <h4>佛釋答</h4>
+        <p>前世不見佛、不聞法、不修諸善故。</p>
+      </div>
+      <div class="qa-step">
+        <div class="qa-tag">STEP 5</div>
+        <h4>佛證答</h4>
+        <p>佛眼觀：離般若方便力，多墮二乘地。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 諸善法皆從般若生 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">陸</span>諸善法皆從般若生
+      <span class="en">All Wholesome Dharmas Born of Prajñā</span>
+    </h2>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:16px;">〈述誠品〉以六層放射，闡明何以「供養般若」勝於一切——因為一切諸佛、波羅蜜、三乘聖果，皆從般若生。</p>
+    <div class="radiate">
+      <div class="radiate-core">般　若　波　羅　蜜</div>
+      <div class="radiate-arms">
+        <div class="radiate-arm">
+          <h4>一切種智</h4>
+          <p>諸佛之智</p>
+        </div>
+        <div class="radiate-arm">
+          <h4>五波羅蜜</h4>
+          <p>施、戒、忍、進、禪</p>
+        </div>
+        <div class="radiate-arm">
+          <h4>十八空</h4>
+          <p>~ 十八不共法</p>
+        </div>
+        <div class="radiate-arm">
+          <h4>諸佛五眼</h4>
+          <p>肉、天、慧、法、佛</p>
+        </div>
+        <div class="radiate-arm">
+          <h4>淨佛世界</h4>
+          <p>成就眾生、諸佛法</p>
+        </div>
+        <div class="radiate-arm">
+          <h4>三　乘</h4>
+          <p>聲聞、辟支佛、佛</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 般若在世則三寶不滅 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">柒</span>般若在世，則三寶不滅
+      <span class="en">When Prajñā Abides, the Three Jewels Endure</span>
+    </h2>
+    <p style="font-size:14px;color:var(--ink-soft);">這是〈述誠品〉的結論命題——般若是世間善法存續的條件。</p>
+    <div class="dharma-pillars">
+      <div class="pillar">
+        <h4>三寶不滅</h4>
+        <p>佛寶、法寶、比丘僧寶終不滅。</p>
+      </div>
+      <div class="pillar">
+        <h4>眾善現世</h4>
+        <p>十善道、四禪、四無量心、四無色定、六度、四念處~十八不共法、一切智、一切種智，皆現於世。</p>
+      </div>
+      <div class="pillar">
+        <h4>聖凡相續</h4>
+        <p>剎利大姓、婆羅門、居士、諸天、四果、辟支佛、菩薩、諸佛——人天聖賢相續不絕。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;color:var(--indigo);font-size:18px;letter-spacing:0.08em;">論主關鍵釋疑：實相般若 vs 文字般若</h3>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:8px;">問：般若不生不滅如虛空，何以說「般若在世」？答曰——</p>
+    <div class="dual-prajna">
+      <div class="prajna-card">
+        <h4>① 實相般若</h4>
+        <p>有佛、無佛，常住不滅。體性如虛空，本不生滅、不來不去。</p>
+        <p class="meta">Prajñā as ultimate reality</p>
+      </div>
+      <div class="prajna-card">
+        <h4>② 文字般若</h4>
+        <p>所謂「般若經卷在世」——可修習、可讀誦者。「在世」是因中說果。</p>
+        <p class="meta">深井與綆之喻：井（實相）本未失，綆（修習能力）若無，便如失井。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四大核心義理 -->
+  <section>
+    <h2 class="section-title">
+      <span class="num">捌</span>四大核心義理（教學切入點）
+      <span class="en">Four Core Insights for Teaching</span>
+    </h2>
+    <div class="core-grid">
+
+      <div class="core-card">
+        <div class="ord">01</div>
+        <h3>般若是大明呪</h3>
+        <div class="en-title">Prajñā as the Supreme Mantra</div>
+        <div class="point">不是法術，是「智慧本身的力量」。因內證諸法空、不執我與法，外感諸佛守護；非如外道呪術之恃神力。</div>
+        <div class="teach">對比 mantra（神祕咒語）vs prajñā as the supreme mantra（智慧本身就是呪）——《心經》末段「是大神咒、是大明咒、是無上咒」的呼應。</div>
+      </div>
+
+      <div class="core-card">
+        <div class="ord">02</div>
+        <h3>般若為本，舍利為末</h3>
+        <div class="en-title">Wisdom Is Root, Relics Are Branch</div>
+        <div class="point">不貶舍利供養，而是顯般若是「使佛之為佛」的根本。佛身是一切種智所依處 → 故涅槃後供養舍利有義；但般若直接生一切種智 → 故供養般若勝於供養舍利。</div>
+        <div class="teach">對應「象徵 vs 實質」、「relics vs wisdom」的張力——重新理解佛教中的「供養」是培養智慧的修持，非偶像崇拜。</div>
+      </div>
+
+      <div class="core-card">
+        <div class="ord">03</div>
+        <h3>般若是三乘法印</h3>
+        <div class="en-title">Prajñā: Common to the Three Vehicles</div>
+        <div class="point">般若不是大乘獨享，三乘共有，各隨分學。聲聞、辟支佛、菩薩、諸佛皆學般若得度彼岸——這是龍樹會通三乘的關鍵命題。</div>
+        <div class="teach">化解 Theravāda / Mahāyāna 的對立 mindset——智慧是共法，差別在發心廣狹與修證深度。</div>
+      </div>
+
+      <div class="core-card">
+        <div class="ord">04</div>
+        <h3>般若在世則三寶不滅</h3>
+        <div class="en-title">Two Prajñās: Reality &amp; Text</div>
+        <div class="point">「在世」指文字般若——可讀誦、可修習的經卷。實相般若本無生滅，常住如虛空；但對眾生而言，文字般若若失，等同實相被遮蔽。</div>
+        <div class="teach">呼應 textual transmission（經教傳承）的當代意義——翻譯、教學、修行三軌不可廢。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>《大智度論》卷 57　大正藏第 25 冊　No. 1509</p>
+    <p>釋厚觀主編《大智度論講義》第 09 期　·　財團法人印順文教基金會</p>
+    <p style="margin-top:12px;">林吉祥 Luke Lin　·　第二大腦 · 知識庫 / 佛法 / 大智度論　·　2026.05.02</p>
+  </footer>
+
+</div>
+</body>
+</html>
