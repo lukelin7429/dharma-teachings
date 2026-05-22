@@ -7,6 +7,7 @@
 | 內容 | 連結 |
 |------|------|
 | 大智度論 卷 57 結構大綱（〈寶塔校量品〉〈述誠品〉） | [線上瀏覽](https://lukelin7429.github.io/dharma-teachings/) |
+| 放生池畔的方丈 — 蓮池大師的放生事業（《竹窗隨筆》三篇七分鐘講稿） | [線上瀏覽](https://lukelin7429.github.io/dharma-teachings/lianchi-fangsheng/) |
 
 ## 關於
 
